@@ -1,0 +1,82 @@
+<h1>Deportes Component</h1>
+<h2>Numero de deportes: {{sports.length}}</h2>
+
+@if (sports.length < 5) {
+    <h2 style="color: lightskyblue;">
+        Tenemos menos de 5 deportes
+    </h2>
+}
+@else{
+    <h2 style="color: lightyellow;">
+        Tenemos mas de 5 deportes
+    </h2>
+}
+
+<ul>
+
+    @for(deporte of sports; track deporte; let i = $index){
+        <li style="color: brown;">
+            {{i}} - {{deporte}}
+        </li>
+    }
+    @empty{
+        <h2 style="color: lightpink;" >Sin deportes</h2>
+    }
+
+</ul>
+
+<div *ngIf="sports.length < 5; else condicionelse;">
+    <p style="color: lightgreen;">
+        Tenemos menos de 5 deportes
+    </p>
+</div>
+
+
+<ul>
+    <h1>Condicional estilos inline</h1>
+    @for(numero of numbers; track numero){
+        <li [style.color]="numero % 2 == 0 ? 'lightblue' : 'brown'" >{{numero}}</li>
+    }
+</ul>
+
+<ul>
+    <h1>Condicional clases (sin else)</h1>
+    @for(numero of numbers; track numero){
+        <li [class.par]="numero % 2 == 0" [class.impar]="numero % 2 != 0" >{{numero}}</li>
+    }
+</ul>
+
+<ul>
+    <h1>Condicional clases (con else)</h1>
+    @for(numero of numbers; track numero){
+        <li [ngClass]="{
+            par: numero % 2 == 0,
+            impar: numero % 2 != 0
+        }" >
+            {{numero}}
+        </li>
+    }
+</ul>
+
+
+
+<ng-template #condicionelse>
+    <p style="color: lightcoral">
+        Temenos mas de 5 deportes
+    </p>
+</ng-template>
+
+<div *ngFor="let sport of sports">
+    <li style="color: lightblue;">
+        {{sport}}
+    </li>
+</div>
+
+
+<ng-container *ngTemplateOutlet="plantillacodigo"/>
+
+<ng-template #plantillacodigo>
+    <h1 style="color: lightgoldenrodyellow">
+        Esto es una plantilla
+    </h1>
+</ng-template>
