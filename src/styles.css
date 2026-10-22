@@ -6,3 +6,7 @@ body{
 *{
     color: #fff;
 }
+
+input, button{
+    color: black;
+}

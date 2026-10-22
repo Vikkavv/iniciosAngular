@@ -6,6 +6,9 @@ import { HooksComponent } from '../components/hookscomponent/hooks.component';
 import { DeportesComponent } from '../components/deportescomponent/deportes.component';
 import { FormsModule } from '@angular/forms';
 import { FormsBindingComponent } from '../components/formsbindingcomponent/forms.binding.component';
+import { SumarNumerosComponent } from '../components/sumarnumeroscomponent/sumar.numeros.component';
+import { TablaMultiplicar } from '../components/tabla-multiplicar/tabla-multiplicar';
+import { TablaMultiplicarV2 } from '../components/tabla-multiplicar-v2/tabla-multiplicar-v2';
 
 @NgModule({
   declarations: [
@@ -13,15 +16,13 @@ import { FormsBindingComponent } from '../components/formsbindingcomponent/forms
     PrimerComponent,
     HooksComponent,
     DeportesComponent,
-    FormsBindingComponent
+    FormsBindingComponent,
+    SumarNumerosComponent,
+    TablaMultiplicar,
+    TablaMultiplicarV2
   ],
-  imports: [
-    BrowserModule,
-    FormsModule
-  ],
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-  ],
-  bootstrap: [App]
+  imports: [BrowserModule, FormsModule],
+  providers: [provideBrowserGlobalErrorListeners()],
+  bootstrap: [App],
 })
-export class AppModule { }
+export class AppModule {}

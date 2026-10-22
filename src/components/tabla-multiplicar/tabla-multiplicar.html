@@ -1,0 +1,19 @@
+<form #ngform="ngForm" (ngSubmit)="multiplicarNumeros()">
+    <label for="numero">Numero</label>
+    <input type="number" name="numero" id="numero" [(ngModel)]="numero" #numeroInput required>
+    <button type="submit" >Multiplicar</button>
+</form>
+
+<h1>{{numero}}</h1>
+
+<ul>
+    @for (numero of numeros; track $index) {
+        <li>{{numero}}</li>
+    }
+</ul>
+
+<ul>
+    @for (numero of numeros; track $index; let i = $index) {
+        <li>{{this.numero}} * {{i + 1}} = {{numero}}</li>
+    }
+</ul>
